@@ -1,0 +1,22 @@
+version: '3.7'
+
+volumes:
+  map1:
+
+services:
+  factorio:
+    restart: unless-stopped
+    image: factoriotools/factorio
+    container_name: factorio 
+    ports:
+      - "34197:34197/udp"
+      - "27015:27015/tcp"
+    volumes:
+      - map1:/factorio/
+      - ./server-settings.example.json:/server-settings.json
+    environment:
+      - USERNAME=${USERNAME:-improvshark}
+      - PASSWORD=${PASSWORD}
+      - TOKEN=${TOKEN}
+      - GAME_PASSWORD=${GAME_PASSWORD:-something}
+    entrypoint: /bin/sh -c "mkdir -p /factorio/config && envsubst < /server-settings.json > /factorio/config/server-settings.json && exec /docker-entrypoint.sh"

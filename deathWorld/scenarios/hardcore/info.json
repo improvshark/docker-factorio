@@ -1,0 +1,9 @@
+{
+"name": "hardcore deathworld",
+"version": "0.0.1",
+"title": "Hardcore Deathworld",
+"author": "improvshark",
+"factorio_version": "1.1",
+"dependencies": ["base >= 1.1"],
+"description": "This Scenario restarts the map when everyone is dead"
+}

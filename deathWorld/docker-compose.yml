@@ -1,0 +1,23 @@
+version: '3.7'
+
+volumes:
+  data:
+
+services:
+  factorio:
+    restart: unless-stopped
+    build: .
+    container_name: factorio
+    ports:
+      - "34197:34197/udp"
+      # - "27015:27015/tcp"
+    volumes:
+      - data:/factorio/
+    environment:
+      - FACTORIO_NAME=_hell_hole_
+      - FACTORIO_DESCRIPTION=neat
+      - FACTORIO_SEED=2971738272
+      - FACTORIO_PASSWORD=${GAME_PASSWORD:-something}
+      - FACTORIO_AUTH_TOKEN=${FACTORIO_AUTH_TOKEN}
+      - FACTORIO_AUTH_USERNAME=${USERNAME:-improvshark}
+      - FACTORIO_AUTH_PASSWORD=${PASSWORD}
