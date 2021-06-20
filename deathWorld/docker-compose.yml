@@ -14,7 +14,8 @@ services:
     volumes:
       - data:/factorio/
     environment:
-      - FACTORIO_NAME=_hell_hole_
+      - FACTORIO_NAME=_hell_hole_test
+      - FACTORIO_PUBLIC=false
       - FACTORIO_DESCRIPTION=neat
       - FACTORIO_SEED=2971738272
       - FACTORIO_PASSWORD=${GAME_PASSWORD:-something}
